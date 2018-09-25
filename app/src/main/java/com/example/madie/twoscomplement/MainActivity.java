@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
+import java.util.*;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -43,7 +44,66 @@ public class MainActivity extends AppCompatActivity
     private String addOne(String bin)
     {
         //will return a new String that is the given string with 1 added to it
-        return bin;
+        if(bin.charAt(bin.length()-1) == 0)
+        {
+            bin = setChar(bin, 1);
+            return bin;
+        }
+
+        else
+        {
+            //convert to decimal, then add one, then convert back to binary
+
+            int tempNum = binToDecimal(bin) + 1;
+            return decimalToBin(tempNum);
+        }
+        
+    }
+
+    private String setChar(String s, int num)
+    {
+        String answer = "";
+        for(int i = 0; i < s.length(); i++)
+        {
+            if(i == s.length()-1)
+            {
+                answer += num;
+            }
+
+            else
+            {
+                answer += s.charAt(i);
+            }
+        }
+
+        return answer;
+    }
+
+    // Parts taken from https://beginnersbook.com/2014/07/java-program-for-binary-to-decimal-conversion/
+    private int binToDecimal(String bin)
+    {
+//        int decimal = 0;
+//        int p = 0;
+//        while(true)
+//        {
+//            if(bin == 0)
+//            {
+//                break;
+//            }
+//            else {
+//                int temp = bin % 10;
+//                decimal += temp * Math.pow(2, p);
+//                bin = bin / 10;
+//                p++;
+//            }
+//        }
+//        return decimal;
+        return Integer.parseInt(bin, 2);
+    }
+
+    private String decimalToBin(int num)
+    {
+        return Integer.toBinaryString(num);
     }
 
     private String encodeAsTwosComplement(String bin)
