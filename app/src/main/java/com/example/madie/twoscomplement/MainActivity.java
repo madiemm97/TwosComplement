@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity
             int tempNum = binToDecimal(bin) + 1;
             return decimalToBin(tempNum);
         }
-        
+
     }
 
     private String setChar(String s, int num)
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity
         return answer;
     }
 
-    // Parts taken from https://beginnersbook.com/2014/07/java-program-for-binary-to-decimal-conversion/
+    // Commented code taken from https://beginnersbook.com/2014/07/java-program-for-binary-to-decimal-conversion/
     private int binToDecimal(String bin)
     {
 //        int decimal = 0;
